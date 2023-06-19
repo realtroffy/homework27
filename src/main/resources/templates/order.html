@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h2>Dear <span th:text="${username}"></span>, your order:</h2>
+    <table style="margin-left:auto;margin-right:auto;">
+        <tbody>
+        <tr th:each="good,state: ${order.getOrderedGoods()}">
+            <td th:text="${state.count}+')'">Count</td>
+            <td th:text="${good.title}">Title</td>
+            <td th:text="${good.price}+' $'">Price</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Total: $ <span th:text="${order.getTotalPrice()}"></span></h3>
+</div>
+</body>
+</html>
